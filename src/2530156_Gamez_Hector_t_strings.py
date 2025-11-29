@@ -47,10 +47,13 @@ Dado el nombre completo de una persona en una sola cadena (por ejemplo:
 
 """
 Entradas:
+first_name, last_name
 
 Salidas:
+full_name, initials
 
 Validaciones:
+
 
 Testing:
 
@@ -81,3 +84,28 @@ print("Full Name:", full_name.strip().title())
 print("Initials:", initials)    
 
 # Problema 2: Email validator
+
+"""Descripción:
+Valida si una dirección de correo tiene un formato básico correcto:
+- Contiene exactamente un '@'.
+- Después del '@' debe haber al menos un '.'.
+- No contiene espacios en blanco.
+Si el correo es válido, también muestra el dominio 
+(la parte después de '@').
+"""
+
+"""
+Entradas:
+
+Salidas:
+
+Validaciones:
+
+Testing:
+
+"""
+
+email_text = input("Set your email address: ")
+for i in range(5):
+email_text = email_text.strip()==""
+
