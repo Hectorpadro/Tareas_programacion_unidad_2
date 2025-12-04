@@ -1,36 +1,40 @@
-"""
-    Nombre: Hector Manuel Gamez Padrón
-    Matrícula: 2530156
-    Grupo: IM 1-3
-"""
+# ------------------------------
+# Nombre: Hector Manuel Gamez Padrón
+# Matrícula: 2530156
+# Grupo: IM 1-3
+# ------------------------------
+
 
 # ------------------------------
-# Resumen Ejecutivo:
+# Executive Summary:
 # ------------------------------
-# En este documento se explica que un **bucle for** permite repetir acciones 
-# recorriendo colecciones, rangos o secuencias con un número conocido de iteraciones. 
-# Un **bucle while** repite instrucciones mientras una condición lógica sea verdadera, 
-# siendo más natural cuando no se sabe cuántas veces se repetirá el proceso. 
-# Un **contador** aumenta su valor para llevar registro de repeticiones, 
-# mientras que un **acumulador** suma valores para obtener totales parciales o finales. 
-# Es crucial definir bien la **condición de salida** para evitar ciclos infinitos 
-# que bloqueen el programa o consuman recursos. 
-# El documento cubrirá la descripción de cada problema, diseño de entradas y salidas, 
-# validaciones necesarias y uso adecuado de for/while en recorridos, menús y lecturas repetidas.
+# This document explains that a **for loop** allows you to repeat actions
+# by traversing collections, ranges, or sequences with a known number of iterations.
+# A **while loop** repeats instructions as long as a logical condition is true,
+# being more natural when you don't know how many times the process will be repeated.
+# A **counter** increments its value to keep track of repetitions,
+# while an **accumulator** sums values ​​to obtain partial or final totals.
+# It is crucial to define the **exit condition** well to avoid infinite loops
+# that block the program or consume resources.
+# The document will cover the description of each problem, input and output design,
+# necessary validations, and proper use of for/while loops in traversals, menus, and repeated reads.
 
-# PRINCIPIOS Y BUENAS PRÁCTICAS
+
 # ------------------------------
-# - Utiliza un bucle **for** cuando conoces de antemano cuántas iteraciones habrá 
-#   (por ejemplo, recorrer un rango del 1 al 10).
-# - Utiliza un bucle **while** cuando el número de repeticiones depende de una 
-#   condición que puede cambiar en tiempo de ejecución (por ejemplo, leer datos 
-#   hasta que el usuario escriba "EXIT").
-# - Inicializa correctamente **contadores** y **acumuladores** antes de entrar al bucle
-#   para evitar errores lógicos y valores inesperados.
-# - En bucles while, recuerda **actualizar la variable de control** dentro del bucle
-#   para evitar ciclos infinitos.
-# - Mantén el cuerpo del bucle **simple y legible**; si la lógica es compleja, muévela
-#   a funciones separadas para mejorar claridad y mantenimiento del código.
+# PRINCIPLES AND BEST PRACTICES
+# ------------------------------
+# - Use a **for** loop when you know in advance how many iterations there will be
+# (for example, iterating through a range from 1 to 10).
+# - Use a **while** loop when the number of repetitions depends on a
+# condition that can change at runtime (for example, reading data
+# until the user types "EXIT").
+# - Properly initialize **counters** and **accumulators** before entering the loop
+# to avoid logical errors and unexpected values.
+# - In while loops, remember to **update the control variable** inside the loop
+# to avoid infinite loops.
+# - Keep the loop body **simple and readable**; if the logic is complex, move it
+# to separate functions to improve code clarity and maintainability.
+
 
 #--------------------------------------------------
 # Problem 1: Sum of range with for
@@ -51,20 +55,30 @@
 # n < 1:("Error: invalid input")
 #
 # Test cases:
-# 1) Normal: ...
-# 2) Border: ...
-# 3) Error: ...
+# 1) Normal: 
+# Enter n: 15
+# Sum 1..n: 120
+# Even sum 1..n: 56
+#
+# 2) Border: 
+# Enter n: 1
+# Sum 1..n: 1
+# Even sum 1..n: 0
+# 
+# 3) Error: 
+# Enter n: -5
+# Error: invalid input
 
 
 n_input = input("Enter n: ").strip()
 
-# Try converting to int
+
 try:
     n = int(n_input)
 except ValueError:
     print("Error: invalid input")
 else:
-    # Validate that n >= 1
+
     if n < 1:
         print("Error: invalid input")
     else:
@@ -102,16 +116,33 @@ else:
 # - m >= 1 ("Error: invalid input")
 #
 # Test cases:
-# 1) Normal: ...
-# 2) Border: ...
-# 3) Error: ...
+# 1) Normal:
+# Even sum 1..n: 56
+# Enter base: 6
+# Enter limit: 7
+#6 x 1 = 6
+# 6 x 2 = 12
+# 6 x 3 = 18
+# 6 x 4 = 24
+# 6 x 5 = 30
+# 6 x 6 = 36
+# 6 x 7 = 42
+#
+# 2) Border: 
+# Enter base: 5
+# Enter limit: 1
+# 5 x 1 = 5
+# 
+# 3) Error: 
+# Enter base: 7
+# Enter limit: 0
+# Error: invalid input
 
 
 try:
     base = int(input("Enter base: ").strip())
     m = int(input("Enter limit: ").strip())
-
-    # Validation that m is >= 1
+   
     if m < 1:
         print("Error: invalid input")
     else:
@@ -120,7 +151,6 @@ try:
             print(f"{base} x {i} = {resultado}")
 
 except ValueError:
-    # Capture only integer conversion errors
     print("Error: invalid input")
 
 
@@ -146,9 +176,25 @@ except ValueError:
 # Each number must be converted into a float.
 #
 # Test cases:
-# 1) Normal: ...
-# 2) Border: ...
-# 3) Error: ...
+# 1) Normal: 
+# Enter number (-1 to finish): 6
+# Enter number (-1 to finish): 5
+# Enter number (-1 to finish): 4
+# Enter number (-1 to finish): 3
+# Enter number (-1 to finish): 2
+# Enter number (-1 to finish): -1
+# Count: 5
+# Average: 4.0
+#
+# 2) Border: 
+# Enter number (-1 to finish): 8
+# Enter number (-1 to finish): -1
+# Count: 1
+# Average: 8.0
+#
+# 3) Error: 
+# Enter number (-1 to finish): -1
+# Error: no data
 
 sentinel_value = -1
 total = 0
@@ -159,10 +205,7 @@ while True:
         number = float(input("Enter number (-1 to finish): "))
     except ValueError:
         print("Error: invalid input")
-        continue
-    except KeyboardInterrupt:
-            print("\nSalida manual")
-            break
+
 
     if number == sentinel_value:
         break
@@ -197,9 +240,17 @@ else:
 # MAX_ATTEMPTS > 0
 #
 # Test cases:
-# 1) Normal: ...
-# 2) Border: ...
-# 3) Error: ...
+# 1) Normal:
+# Enter password: admin123
+# Login success
+# 
+# 2) Border: 
+# Incorrect password. You have 1 attempt(s) left.
+# Enter password: admin123
+# Login success
+# 
+# 3) Error: 
+# Account locked
 
 CORRECT_PASSWORD = "admin123"
 MAX_ATTEMPTS = 3
@@ -209,15 +260,15 @@ attempts = 0
 while attempts < MAX_ATTEMPTS:
     user_password = input("Enter password: ")
     attempts += 1
-    remaining = MAX_ATTEMPTS - attempts
-    if remaining > 0:
-        print(f"Incorrect password. You have {remaining} attempt(s) left.")
-
+    
     if user_password == CORRECT_PASSWORD:
         print("Login success")
         break
+    remaining = MAX_ATTEMPTS - attempts
+    if remaining > 0:
+        print(f"Incorrect password. You have {remaining} attempt(s) left.")
 else:
-    # This else statement is executed if the while loop ends without a break statement.
+    
     print("Account locked")
 
 #--------------------------------------------------
@@ -246,9 +297,17 @@ else:
 # option must be 0, 1, 2, or 3
 #
 # Test cases:
-# 1) Normal: ...
-# 2) Border: ...
-# 3) Error: ...
+# 1) Normal: 
+#    Input: 1 → 2 → 3 → 0
+#    Output: Hello!, Counter:0, Counter incremented, Bye!
+#
+# 2) Border: 
+# Choose an option: 0
+# Bye!
+#
+# 3) Error: 
+# Choose an option: 5
+# Error: invalid option
 
 counter = 0
 
@@ -304,9 +363,25 @@ while True:
 # "Error: invalid input" 
 #
 # Test cases:
-# 1) Normal: ...
-# 2) Border: ...
-# 3) Error: ...
+# 1) Normal: 
+# Enter n: 4
+# *
+# **
+# ***
+# ****
+# ****
+# ***
+# **
+# *
+#
+# 2) Border: 
+# Enter n: 1
+# *
+# *
+#
+# 3) Error: 
+# Enter n: 0
+# Error: invalid input
 
 n_text = input("Enter n: ")
 
@@ -320,18 +395,36 @@ if n < 1:
     print("Error: invalid input")
     exit()
 
-# First triangle
+
 for i in range(1, n + 1):
     print("*" * i)
 
-# Optional inverted triangle (simple)
+
 for i in range(n, 0, -1):
     print("*" * i)
 
 #--------------------------------------------------
-# 8. CONCLUSIONES (COMENTARIOS AL FINAL)
+#  CONCLUSIONS 
 #--------------------------------------------------
+# # The for loop is useful when we know how many times to repeat,
+# while the while loop is used to repeat based on a condition.
+# Counters and accumulators allow us to keep track of sums,
+# attempts, or values ​​within loops.
+# A risk of the while loop is falling into infinite loops if the condition is not updated correctly.
+# Menus and password systems are typical examples where the while loop works very well.
+# Nested loops allow us to create patterns like triangles of asterisks
+# and better understand repetition within another repetition.
 
 #--------------------------------------------------
-# 9. REFERENCIAS (MÍNIMO 5) – EN COMENTARIOS
+#  REFERENCES
 #--------------------------------------------------
+# https://docs.python.org/3/tutorial/controlflow.html
+# https://www.youtube.com/watch?v=-EZREF7Hp6s
+# https://www.youtube.com/watch?v=x-qbx7vXuxA
+# https://www.youtube.com/watch?v=w53HiWSZnzU
+# https://www.youtube.com/watch?v=YEWxlbffgxE
+# https://libros.metabiblioteca.org/server/api/core/bitstreams/a567dd25-1e96-4c0f-9b6a-7a844d0eb577/content
+
+
+# URL Repositorio en github
+# https://github.com/Hectorpadro/Tareas_programacion_unidad_2.git
